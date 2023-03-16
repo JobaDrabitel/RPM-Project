@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7551090808360863850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7551090808360863849}
+  - component: {fileID: 7551090808360863854}
+  - component: {fileID: 7551090808360863855}
+  - component: {fileID: 7551090808360863853}
+  m_Layer: 0
+  m_Name: BattleController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7551090808360863849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7551090808360863850}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 511.70724, y: 125.294266, z: -0.9902321}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7551090808360863854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7551090808360863850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa20379ce67c13846a436012c467326c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnpoints:
+  - {fileID: 839516045013738082, guid: 5364d466699e10548ab7be9d716b9743, type: 3}
+  - {fileID: 839516045013738082, guid: 5364d466699e10548ab7be9d716b9743, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  prefabs:
+  - {fileID: 4238115705478470852, guid: 640b62a16d8abe34e83ea6638a0e0c18, type: 3}
+  - {fileID: 4238115705478470852, guid: 640b62a16d8abe34e83ea6638a0e0c18, type: 3}
+  - {fileID: 4238115705478470852, guid: 640b62a16d8abe34e83ea6638a0e0c18, type: 3}
+  - {fileID: 1567268536444172407, guid: eb68fc7b574bf014cb27d666b25a9174, type: 3}
+  - {fileID: 4238115705478470852, guid: 640b62a16d8abe34e83ea6638a0e0c18, type: 3}
+  - {fileID: 1567268536444172407, guid: eb68fc7b574bf014cb27d666b25a9174, type: 3}
+  - {fileID: 1567268536444172407, guid: eb68fc7b574bf014cb27d666b25a9174, type: 3}
+  - {fileID: 1567268536444172407, guid: eb68fc7b574bf014cb27d666b25a9174, type: 3}
+  units:
+  - {fileID: 1738218286701403258, guid: 640b62a16d8abe34e83ea6638a0e0c18, type: 3}
+  - {fileID: 6742160912825931327, guid: eb68fc7b574bf014cb27d666b25a9174, type: 3}
+  - {fileID: 1738218286701403258, guid: 640b62a16d8abe34e83ea6638a0e0c18, type: 3}
+  - {fileID: 6742160912825931327, guid: eb68fc7b574bf014cb27d666b25a9174, type: 3}
+  - {fileID: 1738218286701403258, guid: 640b62a16d8abe34e83ea6638a0e0c18, type: 3}
+  - {fileID: 6742160912825931327, guid: eb68fc7b574bf014cb27d666b25a9174, type: 3}
+  - {fileID: 1738218286701403258, guid: 640b62a16d8abe34e83ea6638a0e0c18, type: 3}
+  - {fileID: 6742160912825931327, guid: eb68fc7b574bf014cb27d666b25a9174, type: 3}
+  currentUnit: {fileID: 1738218286701403258, guid: 640b62a16d8abe34e83ea6638a0e0c18, type: 3}
+  turn: 0
+--- !u!114 &7551090808360863855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7551090808360863850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c89da9449fdf04f8adbf436b11bb9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleHUD: {fileID: 7551090808360863853}
+  battleContainer: {fileID: 0}
+  EnemyTurnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7551090808360863853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7551090808360863850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f171911bce66c4dbe07c938622dfd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _battleContainer: {fileID: 7551090808360863854}
+  _hpBars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _description: {fileID: 0}
