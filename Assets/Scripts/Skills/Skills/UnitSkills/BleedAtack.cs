@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BleedAtack : Skill
 {
@@ -17,6 +18,7 @@ public class BleedAtack : Skill
 
     private readonly bool _onEnemy = true;
     public override bool OnEnemy { get => _onEnemy; }
+    private int _damage = 5;
 
     private int _cooldown = 3;
     public override int Cooldown { get => _cooldown; set => _cooldown = value; }
@@ -25,9 +27,11 @@ public class BleedAtack : Skill
     private Unit _target;
     public override Unit Target { get => _target; set => _target = value; }
 
-    public override void CauseEffect()
+    public override int Damage => _damage;
+
+    public override void CauseEffect(float modificator)
     {
-        _target.TakeDamage(5);
+        _target.TakeDamage(Convert.ToInt32(_damage * modificator + 0.5));
         _bleed.CurrentDurationSet();
         _bleed.Effect(_target);
     }

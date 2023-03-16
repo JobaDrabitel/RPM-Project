@@ -31,11 +31,11 @@ public class BattleController : MonoBehaviour
         _playerUnits = arraysPrepare.SetUnitsBySide(battleContainer.units, true);
         _enemyUnits = arraysPrepare.SetUnitsBySide(battleContainer.units, false);
     }
-    private void CurrentUnitAction(int index, Unit unit, Unit target)
+    private void CurrentUnitAction(int index, Unit target)
     {
-        battleHUD.HPBarValueChange(battleContainer.units);
         battleHUD.DisplayUnitDescription(target);
-        _currentUnit.UseSkill(index, unit, target);
+        _currentUnit.UseSkill(index, target);
+        battleHUD.HPBarValueChange(battleContainer.units);
         _skillTarget = null;
         _isSkillUsed = false;
         ChangeTurn();
@@ -104,13 +104,13 @@ public class BattleController : MonoBehaviour
     {
         int target = _currentUnit.ChooseTarget(_playerUnits);
         yield return new WaitForSeconds(2f);
-        CurrentUnitAction(0, _currentUnit, battleContainer.units[target]);
+        CurrentUnitAction(0, battleContainer.units[target]);
         yield return new WaitForSeconds(2f);
     }
     public IEnumerator PlayerAction(int index)
     {
         yield return new WaitUntil(() => _skillTarget != null);
-        CurrentUnitAction(index, _currentUnit, _skillTarget);
+        CurrentUnitAction(index, _skillTarget);
         yield return new WaitForSeconds(1f);
 
     }

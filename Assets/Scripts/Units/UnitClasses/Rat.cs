@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Rat : Unit
 {
     private int _lvl = 1;
@@ -34,7 +33,8 @@ public class Rat : Unit
     public override int Initiative => _initiative;
     private int _dodgeChance = 5;
     public override int DodgeChance { get => _dodgeChance; set => _dodgeChance = value; }
-
+    private float _critModificator = 2f;
+    public override float CritModificator => _critModificator;
 
     private List<IEffect> _currentEffects = new();
     public override void GetCurrentEffects()
@@ -56,6 +56,7 @@ public class Rat : Unit
     public override StateMachine State { get => _state; set =>_state = value; }
 
     public override Sprite Icon => _icon;
+
 
     [SerializeField] private Skill[] _skills = new Skill[3];
     public override Skill GetSkill(int index)
@@ -118,11 +119,11 @@ public class Rat : Unit
     public override int ChooseTarget(Unit[] units)
     {
         int target = 0;
-        double maxInjuries = units[0].CurrentHP / units[0].MaxHP;
+        double maxInjuries = Convert.ToDouble(units[0].CurrentHP) / Convert.ToDouble(units[0].MaxHP);
 
         for (int i = 0; i < units.Length; i++)
         {
-            if (maxInjuries < units[i].CurrentHP / units[i].MaxHP && units[i].State != Unit.StateMachine.DEAD)
+            if (maxInjuries > units[i].CurrentHP / units[i].MaxHP && units[i].State != Unit.StateMachine.DEAD)
             {
                 maxInjuries = units[i].CurrentHP / units[i].MaxHP;
                 target = i;

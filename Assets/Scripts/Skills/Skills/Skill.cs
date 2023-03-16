@@ -10,7 +10,8 @@ public abstract class Skill : MonoBehaviour
     public abstract int SkillLevel { get; set; }
     public abstract bool OnEnemy { get; }
     public abstract int Cooldown { get; set; }
+    public abstract int Damage { get;}   
     public abstract Unit Target { get; set; }
     public abstract void AddEffect();
-    public abstract void CauseEffect();
+    public abstract void CauseEffect(float modificator);
 }

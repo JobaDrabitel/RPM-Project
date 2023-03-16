@@ -1891,8 +1891,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c89da9449fdf04f8adbf436b11bb9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _battleHUD: {fileID: 1082236134}
-  _battleContainer: {fileID: 1082236133}
+  battleHUD: {fileID: 1082236134}
+  battleContainer: {fileID: 1082236133}
+  EnemyTurnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1082236133
 MonoBehaviour:
   m_ObjectHideFlags: 0

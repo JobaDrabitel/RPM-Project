@@ -19,6 +19,7 @@ public abstract class Unit : MonoBehaviour
     public abstract int EXPForNewLvl { get; }
     public abstract int EXPForKill { get; }
     public abstract int Initiative { get; }
+    public abstract float CritModificator { get; }
     public abstract void GetCurrentEffects();
     public abstract void SetCurrentEffects(IEffect effect);
     public abstract Skill GetSkill(int index);
@@ -43,15 +44,23 @@ public abstract class Unit : MonoBehaviour
     public abstract void Heal(int heal);
     public abstract int SetRandomInitiative();
     public abstract void ChangeInitiative(int value);
-    public virtual void UseSkill(int index, Unit unit, Unit target)
+    public virtual void UseSkill(int index, Unit target)
     {
-        Skill skill = unit.GetSkill(index);
-        skill.Target = target;
-        string log = $"{unit.Name} использует {skill.SkillName} на {target.Name}!";
-        Debug.Log(log);
-        skill.AddEffect();
-        skill.CauseEffect();
-        unit.State = StateMachine.WAIT;
+        float modificator = 1f;
+        Skill skill = GetSkill(index);
+        if (target.DodgeChance < UnityEngine.Random.Range(0, 100))
+        {
+            skill.Target = target;
+            if (CriticalChance > UnityEngine.Random.Range(0, 100))
+                modificator = CritModificator;
+                string log = $"{Name} использует {skill.SkillName} на {target.Name}!";
+                Debug.Log(log);
+                skill.AddEffect();
+                skill.CauseEffect(modificator);
+        }
+        else
+            Debug.Log(" - “ы что промахнулс€? \n - Ќет, это был предупредительный выстрел...");
+        State = StateMachine.WAIT;
     }
     public abstract void SetMaxHP(int value);
     public abstract int ChooseTarget(Unit[] units);

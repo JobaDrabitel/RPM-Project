@@ -38,6 +38,8 @@ public class Ninja : Unit
     public override int CriticalChance { get => _criticalChance; set => _criticalChance = value; }
     private int _dodgeChance = 5;
     public override int DodgeChance { get => _dodgeChance; set => _dodgeChance = value; }
+    private float _critModificator = 2f;
+    public override float CritModificator => _critModificator;
 
     public override Sprite Icon => _icon;
 
@@ -67,6 +69,7 @@ public class Ninja : Unit
     }
     private StateMachine _state = StateMachine.WAIT;
     public override StateMachine State { get => _state; set => _state = value; }
+
 
     public override void Atack(int damage, Unit target)
     {

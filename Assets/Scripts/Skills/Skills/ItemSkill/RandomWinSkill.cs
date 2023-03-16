@@ -26,7 +26,9 @@ public class RandomWinSkill : Skill
     private Unit _target;
     public override Unit Target { get => _target; set => _target = value; }
 
-    public override void CauseEffect()
+    public override int Damage => throw new NotImplementedException();
+
+    public override void CauseEffect(float mod)
     {
         _target.TakeDamage(5);
         _bleed.CurrentDurationSet();

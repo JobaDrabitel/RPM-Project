@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmorBuff : Skill
+public class NinjaDodge : Skill
 {
     private readonly int _skillID = 0;
     public override int SkillId { get => _skillID; }
-    private readonly string _skillName = "∆елезное гузно";
+    private readonly string _skillName = "Ѕаттерфл€й";
     public override string SkillName { get => _skillName; }
 
-    private readonly string _skillDescription = "∆ирный как поезд пассажирный";
+    private readonly string _skillDescription = " упи мкб...";
     public override string SkillDescription { get => _skillDescription; }
 
     private int _skillLevel = 1;
@@ -21,16 +21,17 @@ public class ArmorBuff : Skill
     private int _cooldown = 3;
     public override int Cooldown { get => _cooldown; set => _cooldown = value; }
 
-    [SerializeField] private ArmorBuffEffect _armorBuff;
+    [SerializeField] private DodgeEffect _dodgebuff;
     private Unit _target;
     public override Unit Target { get => _target; set => _target = value; }
+    public override int Damage => throw new System.NotImplementedException();
 
     public override void AddEffect()
     {
-        _target.SetCurrentEffects(_armorBuff);
+        _target.SetCurrentEffects(_dodgebuff);
     }
-    public override void CauseEffect()
+    public override void CauseEffect(float modificator)
     {
-        _armorBuff.Effect(_target);
+        _dodgebuff.Effect(_target);
     }
 }

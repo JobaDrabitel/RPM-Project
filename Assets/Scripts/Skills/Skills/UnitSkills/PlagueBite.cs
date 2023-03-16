@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlagueBite : Skill
 {
@@ -24,14 +25,17 @@ public class PlagueBite : Skill
     [SerializeField] private PlagueEffect _plague;
     private Unit _target;
     public override Unit Target { get => _target; set => _target = value; }
+    private int _damage = 5;
+    public override int Damage { get => _damage; }
 
     public override void AddEffect()
     {
-        _target.TakeDamage(5);
-        _target.SetCurrentEffects(_plague);
-    }
-    public override void CauseEffect()
-    {
         _plague.Effect(_target);
+
+    }
+    public override void CauseEffect(float modificator)
+    {
+        _target.TakeDamage(Convert.ToInt32(_damage * modificator + 0.5));
+        _target.SetCurrentEffects(_plague);
     }
 }

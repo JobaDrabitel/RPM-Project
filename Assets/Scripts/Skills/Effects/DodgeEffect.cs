@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmorBuffEffect : MonoBehaviour, IEffect
+public class DodgeEffect : MonoBehaviour, IEffect
 {
     private int _duration = 3;
     private int _currentDuration = 3;
@@ -21,8 +21,8 @@ public class ArmorBuffEffect : MonoBehaviour, IEffect
     }
     public void Effect(Unit target)
     {
-        Debug.Log(target.Armor);
-        target.Armor += 2;
-        Debug.Log(target.Armor);
+        Debug.Log(target.DodgeChance);
+        target.DodgeChance += 20;
+        Debug.Log(target.DodgeChance);
     }
 }
