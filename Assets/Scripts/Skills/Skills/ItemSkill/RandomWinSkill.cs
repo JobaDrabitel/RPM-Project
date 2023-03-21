@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class RandomWinSkill : Skill
 {
@@ -24,9 +25,12 @@ public class RandomWinSkill : Skill
 
     [SerializeField] private BleedEffect _bleed;
     private Unit _target;
+    [SerializeField] private Image _icon;
+    public override Image Icon => throw new NotImplementedException();
     public override Unit Target { get => _target; set => _target = value; }
 
     public override int Damage => throw new NotImplementedException();
+
 
     public override void CauseEffect(float mod)
     {

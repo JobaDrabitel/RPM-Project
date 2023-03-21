@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NinjaDodge : Skill
 {
@@ -25,6 +27,8 @@ public class NinjaDodge : Skill
     private Unit _target;
     public override Unit Target { get => _target; set => _target = value; }
     public override int Damage => throw new System.NotImplementedException();
+    [SerializeField] private Image _icon;
+    public override Image Icon => _icon;
 
     public override void AddEffect()
     {

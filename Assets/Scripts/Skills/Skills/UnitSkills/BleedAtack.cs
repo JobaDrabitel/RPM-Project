@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class BleedAtack : Skill
 {
@@ -26,7 +27,8 @@ public class BleedAtack : Skill
     [SerializeField] private BleedEffect _bleed;
     private Unit _target;
     public override Unit Target { get => _target; set => _target = value; }
-
+    [SerializeField] private Image _icon;
+    public override Image Icon => _icon;
     public override int Damage => _damage;
 
     public override void CauseEffect(float modificator)
