@@ -67,6 +67,11 @@
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
       }
+        .btn-outline-light {
+            color: #fff;
+            border-color: white;
+        }
+
     </style>
 
     
@@ -88,19 +93,84 @@
   </header>
 
   <main class="px-3">
-    <h1>Мы делаем игры.</h1>
-    <p class="lead">Мы правда их сделаем пожалуйста верьте нам...</p>
-    <p class="lead">
-      <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">О нас</a>
-    </p>
+      <h1>Мы делаем игры.</h1>
+      <p class="lead">Мы правда их сделаем пожалуйста верьте нам...</p>
+      <p class="lead">
+          <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">О нас</a>
+      </p>
+      <form class="row g-3">
+          <div class="col-md-6 mx-auto">
+              <label for="inputEmail4" class="form-label">Email</label>
+              <input type="email" class="form-control" id="inputEmail4">
+          </div>
+          <div class="col-md-6 mx-auto">
+              <label for="inputPassword4" class="form-label">Password</label>
+              <input type="password" class="form-control" id="inputPassword4">
+          </div>
+          <div class="col-md-12 text-center">
+              <button id="regButton" type="button" class="btn btn-outline-light mx-2">Регистрация</button>
+              <button id="loginButton" type="button" class="btn btn-outline-light mx-2">Авторизация</button>
+          </div>
+
+      </form>
+
   </main>
 
   <footer class="mt-auto text-white-50">
     <p>Настоящий талант: <a href="https://vk.com/pizzamozarellarellarellarella" class="text-white">Гений</a>
   </footer>
 </div>
+  <script>
+      // Получаем элементы формы и кнопки
+const form = document.querySelector('form');
+      const loginButton = document.querySelector('#loginButton');
+      const regButton = document.querySelector('#regButton');
+      let users = ["user"];
 
+// Добавляем обработчик события при отправке формы
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); // Отменяем действие по умолчанию
 
+  const email = document.querySelector('#inputEmail4').value;
+  const password = document.querySelector('#inputPassword4').value;
+
+  // Проверяем, соответствуют ли email и пароль условиям авторизации
+  if (email === 'admin' && password === 'admin') {
+    // Открываем страницу admin.html
+    window.location.href = 'admin.html';
+  } else {
+    // Выводим сообщение об ошибке
+    alert('Неверный логин или пароль!');
+  }
+});
+      regButton.addEventListener('click', function (e) {
+          e.preventDefault(); // Отменяем действие по умолчанию
+
+          const email = document.querySelector('#inputEmail4').value;
+          const password = document.querySelector('#inputPassword4').value;
+
+          users.push(email);
+      });
+
+// Добавляем обработчик события при нажатии на кнопку авторизации
+loginButton.addEventListener('click', function() {
+  const email = document.querySelector('#inputEmail4').value;
+  const password = document.querySelector('#inputPassword4').value;
+
+  // Проверяем, соответствуют ли email и пароль условиям авторизации
+    if (email === 'admin' && password === 'admin') {
+        // Открываем страницу admin.html
+        window.location.href = 'admin.html';
+    } else if (users.includes(email) && password === 'user') window.location.href = 'user.html';
+    else
+  {
+    // Выводим сообщение об ошибке
+    alert('Неверный логин или пароль!');
+  }
+});
+
+  </script>
+      
     
   </body>
 </html>
